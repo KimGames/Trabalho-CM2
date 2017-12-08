@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 /**
  * Created by allanromanato on 11/4/15.
  */
-public class PessoaObj {
+public class CidadeObj {
     private String nome;
     private String sobrenome;
     private String email;
