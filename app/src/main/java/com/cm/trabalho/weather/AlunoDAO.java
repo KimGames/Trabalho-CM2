@@ -1,4 +1,4 @@
-package com.example.victor.appalunos;
+package com.cm.trabalho.weather;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +63,6 @@ public class AlunoDAO extends SQLiteOpenHelper{
             values.put("endereco", aluno.getEndereco());
             values.put("email", aluno.getEmail());
             values.put("foto", aluno.getFoto());
-
 
             //inserir dados do aluno no BD
             getWritableDatabase().insert(TABELA, null, values);

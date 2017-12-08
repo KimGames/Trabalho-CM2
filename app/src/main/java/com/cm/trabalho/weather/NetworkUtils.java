@@ -1,4 +1,4 @@
-package com.example.victor.appalunos;
+package com.cm.trabalho.weather;
 
 import java.io.BufferedReader;
 import java.io.IOException;

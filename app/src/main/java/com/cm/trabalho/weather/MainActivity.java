@@ -1,4 +1,4 @@
-package com.example.victor.appalunos;
+package com.cm.trabalho.weather;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.primeira_tela);
 
         GetJson download = new GetJson();
 

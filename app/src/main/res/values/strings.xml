@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Weather</string>
+    <string name="app_name">iWeather</string>
+    <string name="lista_alunos">Lista Contatos</string>
+    <string name="cadastro_contatos">Cadastro de Contatos</string>
+
+    <!-- Strings para itens do menu -->
+    <string name="novo">Novo</string>
+
+    <string name="mais_opcoes">Mais Opções</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="provas">Provas</string>
+    <string name="preferencias">Preferências</string>
+
+    <string name="ligar">Ligar</string>
+    <string name="enviarSMS">Enviar SMS</string>
+    <string name="acharNoMapa">Achar no Mapa</string>
+    <string name="enviarEmail">Enviar E-mail</string>
+    <string name="deletar">Deletar</string>
 </resources>
