@@ -1,11 +1,9 @@
-package com.example.victor.appalunos;
-
-
-import android.util.Log;
+package com.cm.trabalho.weather;
 
 import java.io.Serializable;
 
-public class Aluno implements Serializable{
+public class Cidade implements Serializable{
+    
     private Long id;
     private String nome;
     private String telefone;
