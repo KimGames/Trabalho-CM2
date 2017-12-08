@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android-res="http://schemas.android.com/apk/res-auto">
+
+    <!-- Primeiro e Segundo Item do Menu -->
+
+    <item
+        android:id="@+id/menu_novo"
+        android:icon="@drawable/ic_novo"
+        android-res:showAsAction="always"
+        android:title="@string/novo" />
+
+    <!-- Trabalhando com subitens do menu -->
+    <item
+        android:icon="@drawable/ic_opcoes"
+        android:title="@string/mais_opcoes"
+        android-res:showAsAction="always"
+        >
+    <menu>
+        <item
+            android:id="@+id/menu_enviar_alunos"
+            android:icon="@drawable/ic_enviar"
+            android-res:showAsAction="always"
+            android:title="@string/sincronizar" />
+        <item
+            android:id="@+id/menu_receber_provas"
+            android:icon="@drawable/ic_receber"
+            android-res:showAsAction="always"
+            android:title="@string/provas" />
+        <item
+            android:id="@+id/menu_preferências"
+            android:icon="@drawable/ic_preferencias"
+            android-res:showAsAction="always"
+            android:title="@string/preferencias" />
+    </menu>
+    </item>
+
+
+
+
+
+
+</menu>
