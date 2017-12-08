@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Cidade implements Serializable{
 
-    String lastBuildDate;
-    String city;
-    String country;
-    String region;
+    private String lastBuildDate;
+    private String city;
+    private String country;
+    private String region;
 
     public void setLastBuildDate(String lastBuildDate) {
         this.lastBuildDate = lastBuildDate;
