@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,9 +15,9 @@ import java.util.Date;
 
 public class Utils {
 
-    public PessoaObj getInformacao(String end){
+    public CidadeObj getInformacao(String end){
         String json;
-        PessoaObj retorno;
+        CidadeObj retorno;
         json = NetworkUtils.getJSONFromAPI(end);
         Log.i(">>>>>>>>>> Resultado", json);
         retorno = parseJson(json);
@@ -26,23 +25,26 @@ public class Utils {
         return retorno;
     }
 
-    private PessoaObj parseJson(String json){
+    private CidadeObj parseJson(String json){
         try {
-            PessoaObj pessoa = new PessoaObj();
+            CidadeObj cidade = new CidadeObj();
 
             JSONObject jsonObj = new JSONObject(json);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date data;
 
 
-            JSONObject obj = jsonObj.getJSONObject("query");
-            JSONObject obj1 = obj.getJSONObject("results");
-            JSONObject obj2 = obj1.getJSONObject("channel");
-            pessoa.setNome(obj2.getString("title"));
+            JSONObject obj = jsonObj.getJSONObject("query")
+                    .getJSONObject("results")
+                    .getJSONObject("channel")
+                    .getJSONObject("location");
+            cidade.setNome(obj.getString("city"));
+            
+            
 
 
 
-            return pessoa;
+            return cidade;
         }catch (JSONException e){
             e.printStackTrace();
             return null;
