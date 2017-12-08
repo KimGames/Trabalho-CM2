@@ -2,16 +2,16 @@ package com.cm.trabalho.weather;
 
 import android.graphics.Bitmap;
 
-/**
- * Created by allanromanato on 11/4/15.
- */
 public class CidadeObj {
     private String nome;
-    private String sobrenome;
-    private String email;
+    private String estado;
+    private String pais;
+    private String umidade;
+
+
     private String endereco;
     private String cidade;
-    private String estado;
+
     private String username;
     private String senha;
     private String nascimento;
@@ -26,20 +26,20 @@ public class CidadeObj {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public String getPais() {
+        return pais;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUmidade() {
+        return umidade;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUmidade(String umidade) {
+        this.umidade = umidade;
     }
 
     public String getEndereco() {

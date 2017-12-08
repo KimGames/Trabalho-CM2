@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 
     }
 
-    private class GetJson extends AsyncTask<Void, Void, PessoaObj> {
+    private class GetJson extends AsyncTask<Void, Void, CidadeObj> {
 
         @Override
         protected void onPreExecute(){
@@ -58,14 +58,14 @@ public class MainActivity extends Activity {
 
 
         @Override
-        protected PessoaObj doInBackground(Void... params) {
+        protected CidadeObj doInBackground(Void... params) {
             Utils util = new Utils();
 
             return util.getInformacao("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22uberlandia%2C%20mg%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
         }
 
         @Override
-        protected void onPostExecute(PessoaObj pessoa){
+        protected void onPostExecute(CidadeObj pessoa){
             nome.setText(pessoa.getNome().substring(0,1).toUpperCase()+pessoa.getNome().substring(1));
 
             load.dismiss();
