@@ -3,69 +3,41 @@ package com.cm.trabalho.weather;
 import java.io.Serializable;
 
 public class Cidade implements Serializable{
-    
-    private Long id;
-    private String nome;
-    private String telefone;
-    private String endereco;
-    private String email;
-    private String foto;
 
+    String lastBuildDate;
+    String city;
+    String country;
+    String region;
 
-
-    @Override
-    public String toString() {
-        return nome;
+    public void setLastBuildDate(String lastBuildDate) {
+        this.lastBuildDate = lastBuildDate;
     }
 
-    public Long getId() {
-        return id;
+    public String getLastBuildDate(){
+        return lastBuildDate;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCity() {
+        return city;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getCountry() {
+        return country;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRegion() {
+        return region;
     }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public String getFoto() { return foto;}
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-
-    }
-
-
-
 }
