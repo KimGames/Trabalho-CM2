@@ -9,6 +9,8 @@ public class Previsao {
     private String code;
     private String date;
     private String day;
+    private String high;
+    private String low;
     private String condicao;
     private Cidade cidade;
 
@@ -34,6 +36,22 @@ public class Previsao {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    public String getHigh() {
+        return high;
+    }
+
+    public void setHigh(String high) {
+        this.high = high;
+    }
+
+    public String getLow() {
+        return low;
+    }
+
+    public void setLow(String low) {
+        this.low = low;
     }
 
     public String getCondicao() {
