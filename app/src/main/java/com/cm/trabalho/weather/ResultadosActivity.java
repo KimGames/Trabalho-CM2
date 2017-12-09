@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 
-public class PrevisaoActivity extends Activity {
+public class ResultadosActivity extends Activity {
     private TextView city;
     private TextView state;
     private TextView country;
@@ -42,7 +42,7 @@ public class PrevisaoActivity extends Activity {
 
         @Override
         protected void onPreExecute(){
-            //load = ProgressDialog.show(PrevisaoActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            //load = ProgressDialog.show(ResultadosActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
         }
 
 

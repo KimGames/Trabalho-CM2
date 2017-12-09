@@ -29,7 +29,7 @@ public class PesquisaActivity extends AppCompatActivity {
                 c.setCity(cidade.getText().toString());
                 c.setState(estado.getText().toString());
 
-                Intent intent = new Intent(PesquisaActivity.this,PrevisaoActivity.class);
+                Intent intent = new Intent(PesquisaActivity.this,ResultadosActivity.class);
                 intent.putExtra("PESQUISA",c);
                 startActivity(intent);
 
