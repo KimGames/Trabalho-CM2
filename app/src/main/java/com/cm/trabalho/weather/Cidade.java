@@ -1,5 +1,7 @@
 package com.cm.trabalho.weather;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Cidade implements Serializable{
@@ -23,4 +25,13 @@ public class Cidade implements Serializable{
     public void setCity(String city) {
         this.city = city;
     }
+
+
+    public String inserirEspacos(String str){
+        str = str.replaceAll(" ","%20");
+        Log.i("PORRAN" + str, "oi");
+    return str;
+    }
+
+
 }

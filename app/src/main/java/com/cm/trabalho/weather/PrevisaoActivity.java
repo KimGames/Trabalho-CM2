@@ -50,9 +50,14 @@ public class PrevisaoActivity extends Activity {
         protected CidadeBEAN doInBackground(Void... params) {
             Utils util = new Utils();
             Cidade c = (Cidade) getIntent().getSerializableExtra("PESQUISA");
-            Log.i("previsao " + c.getCity(), "oi");
+            String nome_cidade = c.getCity();
+            String nome_estado = c.getState();
+            nome_cidade = c.inserirEspacos(nome_cidade);
+            nome_estado = c.inserirEspacos(nome_estado);
 
-            return util.getInformacao("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22uberlandia%2C%20mg%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+            return util.getInformacao("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22"+
+
+                    nome_cidade +"%2C%20"+ nome_estado +"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
         }
 
         @Override

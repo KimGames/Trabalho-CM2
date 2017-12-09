@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class PesquisaActivity extends AppCompatActivity {
+    private EditText cidade;
+    private EditText estado;
     private Button botao;
 
 
@@ -15,17 +18,19 @@ public class PesquisaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.formulario);
+        cidade = findViewById(R.id.edCidade);
+        estado = findViewById(R.id.edEstado);
         botao = (Button) findViewById(R.id.bPesquisar);
 
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Cidade p = new Cidade();
-                p.setCity("oi");
-                p.setState("k");
+                Cidade c = new Cidade();
+                c.setCity(cidade.getText().toString());
+                c.setState(estado.getText().toString());
 
                 Intent intent = new Intent(PesquisaActivity.this,PrevisaoActivity.class);
-                intent.putExtra("PESQUISA",p);
+                intent.putExtra("PESQUISA",c);
                 startActivity(intent);
 
             }
