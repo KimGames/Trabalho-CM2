@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ActivityPesquisa"
-            android:label="@string/cadastro_contatos" >
+            android:label="Clima" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
