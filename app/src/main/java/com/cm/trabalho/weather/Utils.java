@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -57,13 +59,15 @@ public class Utils {
             Previsao p = cidade.getPrevisao();
 
             p.setDate(previsoes.getString("date"));
-            
-
-
             p.setDay(previsoes.getString("day"));
             p.setCondicao(previsoes.getString("text"));
-            p.setHigh(previsoes.getString("high"));
-            p.setLow(previsoes.getString("low"));
+
+
+            String high = previsoes.getString("high");
+            String low = previsoes.getString("low");
+            p.setHigh(converterFC(high));
+            p.setLow(converterFC(low));
+            p.setCode(previsoes.getString("code"));
 
 
 
@@ -72,6 +76,14 @@ public class Utils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public String converterFC(String tmp){
+        double t = Double.parseDouble(tmp);
+        DecimalFormat df = new DecimalFormat("#.##");
+        t = (t-32)/1.8;
+        return df.format(t);
+
     }
 
     private Bitmap baixarImagem(String url) {

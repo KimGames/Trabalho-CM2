@@ -22,8 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TelaPrevisaoActivity"
-            android:label="@string/lista_alunos">
+            android:name=".PesquisaActivity"
+            android:label="@string/cadastro_contatos" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,8 +31,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FormularioActivity"
-            android:label="@string/cadastro_contatos" />
+            android:name=".TelaPrevisaoActivity"
+            android:label="@string/lista_alunos"/>
+
     </application>
 
 </manifest>

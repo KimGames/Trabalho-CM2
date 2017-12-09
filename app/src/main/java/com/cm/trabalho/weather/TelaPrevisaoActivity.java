@@ -66,6 +66,9 @@ public class TelaPrevisaoActivity extends Activity {
             tempmax.setText(p.getHigh());
             tempmin.setText(p.getLow());
 
+            String code = p.getCode();
+            // todo
+
             load.dismiss();
         }
     }
