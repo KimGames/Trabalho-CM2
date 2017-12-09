@@ -7,22 +7,29 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
-public class PrimeiraTelaActivity extends Activity {
+public class TelaPrevisaoActivity extends Activity {
     private TextView city;
     private TextView state;
     private TextView country;
+    private TextView data;
+    private TextView condicao;
+    private TextView tempmax;
+    private TextView tempmin;
     private ProgressDialog load;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.primeira_tela);
+        setContentView(R.layout.tela_previsao);
 
         GetJson download = new GetJson();
 
         city = (TextView)findViewById(R.id.Cidade);
         state = (TextView)findViewById(R.id.Estado);
         country = (TextView)findViewById(R.id.Pais);
+        condicao = (TextView)findViewById(R.id.Condicao);
+        tempmax = (TextView)findViewById(R.id.TempMax);
+        tempmin = (TextView)findViewById(R.id.TempMin);
 
         //Chama Async Task
         download.execute();
@@ -33,7 +40,7 @@ public class PrimeiraTelaActivity extends Activity {
 
         @Override
         protected void onPreExecute(){
-            load = ProgressDialog.show(PrimeiraTelaActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            load = ProgressDialog.show(TelaPrevisaoActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
         }
 
 
@@ -49,6 +56,9 @@ public class PrimeiraTelaActivity extends Activity {
             city.setText(cidade.getCity().substring(0,1).toUpperCase()+cidade.getCity().substring(1));
             state.setText(cidade.getRegion().substring(0,1).toUpperCase()+cidade.getRegion().substring(1) );
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
+
+
+
             load.dismiss();
         }
     }
