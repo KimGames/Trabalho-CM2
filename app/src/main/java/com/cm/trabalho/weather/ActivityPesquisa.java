@@ -17,7 +17,7 @@ public class ActivityPesquisa extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.formulario);
+        setContentView(R.layout.pesquisa_layout);
         cidade = findViewById(R.id.edCidade);
         estado = findViewById(R.id.edEstado);
         botao = (Button) findViewById(R.id.bPesquisar);
