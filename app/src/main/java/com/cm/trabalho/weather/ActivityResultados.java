@@ -20,7 +20,7 @@ public class ActivityResultados extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_previsao);
+        setContentView(R.layout.resultados_layout);
 
         GetJson download = new GetJson();
 
