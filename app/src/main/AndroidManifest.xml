@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PesquisaActivity"
+            android:name=".ActivityPesquisa"
             android:label="@string/cadastro_contatos" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ResultadosActivity"
+            android:name=".ActivityResultados"
             android:label="@string/lista_alunos"/>
 
     </application>

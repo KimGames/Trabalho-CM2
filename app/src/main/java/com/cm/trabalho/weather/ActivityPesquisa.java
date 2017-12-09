@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class PesquisaActivity extends AppCompatActivity {
+public class ActivityPesquisa extends AppCompatActivity {
     private EditText cidade;
     private EditText estado;
     private Button botao;
@@ -29,7 +29,7 @@ public class PesquisaActivity extends AppCompatActivity {
                 c.setCity(cidade.getText().toString());
                 c.setState(estado.getText().toString());
 
-                Intent intent = new Intent(PesquisaActivity.this,ResultadosActivity.class);
+                Intent intent = new Intent(ActivityPesquisa.this,ActivityResultados.class);
                 intent.putExtra("PESQUISA",c);
                 startActivity(intent);
 

@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 
-public class ResultadosActivity extends Activity {
+public class ActivityResultados extends Activity {
     private TextView city;
     private TextView state;
     private TextView country;
@@ -42,7 +41,7 @@ public class ResultadosActivity extends Activity {
 
         @Override
         protected void onPreExecute(){
-            //load = ProgressDialog.show(ResultadosActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            load = ProgressDialog.show(ActivityResultados.this, "Por favor Aguarde ...", "Recuperando Informações...");
         }
 
 
@@ -75,7 +74,7 @@ public class ResultadosActivity extends Activity {
             String code = p.getCode();
             // todo
 
-            //load.dismiss();
+            load.dismiss();
         }
     }
 }

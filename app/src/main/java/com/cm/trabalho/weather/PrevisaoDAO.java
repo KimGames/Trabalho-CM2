@@ -11,9 +11,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kim on 08/12/2017.
- */
 
 public class PrevisaoDAO extends SQLiteOpenHelper {
 

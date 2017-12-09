@@ -29,7 +29,6 @@ public class Cidade implements Serializable{
 
     public String inserirEspacos(String str){
         str = str.replaceAll(" ","%20");
-        Log.i("PORRAN" + str, "oi");
     return str;
     }
 
