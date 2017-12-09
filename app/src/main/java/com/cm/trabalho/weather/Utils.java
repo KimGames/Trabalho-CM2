@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,13 +35,32 @@ public class Utils {
             Date data;
 
 
-            JSONObject obj = jsonObj.getJSONObject("query")
+            JSONObject channel = jsonObj.getJSONObject("query")
                     .getJSONObject("results")
-                    .getJSONObject("channel")
+                    .getJSONObject("channel");
+
+            JSONObject obj1 = channel
                     .getJSONObject("location");
-            cidade.setCity(obj.getString("city"));
-            cidade.setRegion(obj.getString("region"));
-            cidade.setCountry(obj.getString("country"));
+
+            cidade.setCity(obj1.getString("city"));
+            cidade.setRegion(obj1.getString("region"));
+            cidade.setCountry(obj1.getString("country"));
+
+
+
+
+            JSONObject obj2 = channel
+                    .getJSONObject("item");
+            JSONArray forecast = obj2.getJSONArray("forecast");
+
+            JSONObject previsoes = forecast.getJSONObject(0);
+            Previsao p = cidade.getPrevisao();
+
+            p.setDate(previsoes.get("date").toString());
+            p.setDay(previsoes.getString("day"));
+            p.setCondicao(previsoes.getString("text"));
+            p.setHigh(previsoes.getString("high"));
+            p.setLow(previsoes.getString("low"));
 
 
 

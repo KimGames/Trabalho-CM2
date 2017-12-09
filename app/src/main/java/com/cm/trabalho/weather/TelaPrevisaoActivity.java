@@ -56,8 +56,12 @@ public class TelaPrevisaoActivity extends Activity {
             city.setText(cidade.getCity().substring(0,1).toUpperCase()+cidade.getCity().substring(1));
             state.setText(cidade.getRegion().substring(0,1).toUpperCase()+cidade.getRegion().substring(1) );
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
+            Previsao p = cidade.getPrevisao();
 
-
+            data.setText(p.getDate());
+            condicao.setText(p.getCondicao());
+            tempmax.setText(p.getHigh());
+            tempmin.setText(p.getLow());
 
             load.dismiss();
         }
