@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class TelaPrevisaoActivity extends Activity {
     private TextView city;
@@ -27,6 +29,7 @@ public class TelaPrevisaoActivity extends Activity {
         city = (TextView)findViewById(R.id.Cidade);
         state = (TextView)findViewById(R.id.Estado);
         country = (TextView)findViewById(R.id.Pais);
+        data = (TextView)findViewById(R.id.Data);
         condicao = (TextView)findViewById(R.id.Condicao);
         tempmax = (TextView)findViewById(R.id.TempMax);
         tempmin = (TextView)findViewById(R.id.TempMin);

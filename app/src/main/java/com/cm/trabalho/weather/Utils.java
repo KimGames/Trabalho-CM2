@@ -56,7 +56,10 @@ public class Utils {
             JSONObject previsoes = forecast.getJSONObject(0);
             Previsao p = cidade.getPrevisao();
 
-            p.setDate(previsoes.get("date").toString());
+            p.setDate(previsoes.getString("date"));
+            
+
+
             p.setDay(previsoes.getString("day"));
             p.setCondicao(previsoes.getString("text"));
             p.setHigh(previsoes.getString("high"));
