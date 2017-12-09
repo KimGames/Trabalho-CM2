@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PrevisaoActivity"
+            android:name=".ResultadosActivity"
             android:label="@string/lista_alunos"/>
 
     </application>
