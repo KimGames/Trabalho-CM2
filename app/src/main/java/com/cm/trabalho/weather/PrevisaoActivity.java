@@ -4,12 +4,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
-
-public class TelaPrevisaoActivity extends Activity {
+public class PrevisaoActivity extends Activity {
     private TextView city;
     private TextView state;
     private TextView country;
@@ -39,23 +38,25 @@ public class TelaPrevisaoActivity extends Activity {
 
     }
 
-    private class GetJson extends AsyncTask<Void, Void, Cidade> {
+    private class GetJson extends AsyncTask<Void, Void, CidadeBEAN> {
 
         @Override
         protected void onPreExecute(){
-            load = ProgressDialog.show(TelaPrevisaoActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            //load = ProgressDialog.show(PrevisaoActivity.this, "Por favor Aguarde ...", "Recuperando Informações...");
         }
 
 
         @Override
-        protected Cidade doInBackground(Void... params) {
+        protected CidadeBEAN doInBackground(Void... params) {
             Utils util = new Utils();
+            Cidade c = (Cidade) getIntent().getSerializableExtra("PESQUISA");
+            Log.i("previsao " + c.getCity(), "oi");
 
             return util.getInformacao("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22uberlandia%2C%20mg%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
         }
 
         @Override
-        protected void onPostExecute(Cidade cidade){
+        protected void onPostExecute(CidadeBEAN cidade){
             city.setText(cidade.getCity().substring(0,1).toUpperCase()+cidade.getCity().substring(1));
             state.setText(cidade.getRegion().substring(0,1).toUpperCase()+cidade.getRegion().substring(1) );
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
@@ -69,7 +70,7 @@ public class TelaPrevisaoActivity extends Activity {
             String code = p.getCode();
             // todo
 
-            load.dismiss();
+            //load.dismiss();
         }
     }
 }

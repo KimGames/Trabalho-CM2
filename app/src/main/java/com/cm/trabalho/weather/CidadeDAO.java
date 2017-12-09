@@ -14,25 +14,25 @@ public class CidadeDAO extends SQLiteOpenHelper{
 
     //Constantes para auxilio no controle de versoes
     private static final int VERSAO = 1;
-    private static final String TABELA = "Cidade";
-    private static final String DATABASE = "Cidades";
+    private static final String TABELA = "CidadeBEAN";
+    private static final String DATABASE = "CidadeBEANs";
     //Constante para logcat
     private static final String TAG = "CADASTRO_CIDADE";
 
     public CidadeDAO(Context context){
-            super(context, DATABASE,null, VERSAO);
-        }
+        super(context, DATABASE,null, VERSAO);
+    }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
 
         //Definicao do comando DDL a ser executado
         String ddl = "CREATE TABLE " + TABELA + "( "
-                   + "id INTEGER PRIMARY KEY, "
-                   + "lastBuildDate TEXT, "
-                   + "city TEXT, "
-                   + "country TEXT, "
-                   + "region TEXT)";
+                + "id INTEGER PRIMARY KEY, "
+                + "lastBuildDate TEXT, "
+                + "city TEXT, "
+                + "country TEXT, "
+                + "region TEXT)";
         //EXECUCAO
         database.execSQL(ddl);
     }
@@ -50,7 +50,7 @@ public class CidadeDAO extends SQLiteOpenHelper{
         onCreate(database);
     }
 
-    public void cadastrarCidade(Cidade cidade){
+    public void cadastrarCidadeBEAN(CidadeBEAN cidade){
 
         //objeto para armazenar os valores dos campos
         ContentValues values = new ContentValues();
@@ -61,20 +61,20 @@ public class CidadeDAO extends SQLiteOpenHelper{
         values.put("region", cidade.getRegion());
         //inserir dados da cidade no BD
         getWritableDatabase().insert(TABELA, null, values);
-        Log.i(TAG, "Cidade cadastrada: " + cidade.getCity());
+        Log.i(TAG, "CidadeBEAN cadastrada: " + cidade.getCity());
     }
 
-    public List<Cidade> listarCidades(){
+    public List<CidadeBEAN> listarCidadeBEANs(){
 
-        List<Cidade> lista = new ArrayList<>();
+        List<CidadeBEAN> lista = new ArrayList<>();
         String sql = "SELECT * FROM " + TABELA + " ORDER BY CITY";
         Cursor cursor = getReadableDatabase().rawQuery(sql,null);
         try{
 
             while(cursor.moveToNext()){
 
-                //Criacao de nova referencia para Cidade
-                Cidade cidade = new Cidade();
+                //Criacao de nova referencia para CidadeBEAN
+                CidadeBEAN cidade = new CidadeBEAN();
                 cidade.setId(cursor.getLong(0));
                 cidade.setLastBuildDate(cursor.getString(1));
                 cidade.setCity(cursor.getString(2));
@@ -97,16 +97,16 @@ public class CidadeDAO extends SQLiteOpenHelper{
         return lista;
     }
 
-    public void deletarCidade(Cidade cidade){
+    public void deletarCidadeBEAN(CidadeBEAN cidade){
 
         //definicao do array de parametros
         String[] args = {cidade.getId().toString()};
         //exclusao do aluno
         getWritableDatabase().delete(TABELA,"id=?", args);
-        Log.i(TAG, "Cidade Deletada: " + cidade.getCity());
+        Log.i(TAG, "CidadeBEAN Deletada: " + cidade.getCity());
     }
 
-    public void alterarCidade(Cidade cidade){
+    public void alterarCidadeBEAN(CidadeBEAN cidade){
 
         ContentValues values = new ContentValues();
         values.put("lastBuildDate", cidade.getLastBuildDate());
@@ -117,6 +117,6 @@ public class CidadeDAO extends SQLiteOpenHelper{
         String[] args = {cidade.getId().toString()};
         //Altera dados da cidade no BD
         getWritableDatabase().update(TABELA, values,"id=?", args);
-        Log.i(TAG, "Cidade Alterada: " + cidade.getCity() );
+        Log.i(TAG, "CidadeBEAN Alterada: " + cidade.getCity() );
     }
 }

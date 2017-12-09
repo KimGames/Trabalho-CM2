@@ -18,9 +18,9 @@ import java.util.Date;
 
 public class Utils {
 
-    public Cidade getInformacao(String end){
+    public CidadeBEAN getInformacao(String end){
         String json;
-        Cidade retorno;
+        CidadeBEAN retorno;
         json = NetworkUtils.getJSONFromAPI(end);
         Log.i(">>>>>>>>>> Resultado", json);
         retorno = parseJson(json);
@@ -28,9 +28,9 @@ public class Utils {
         return retorno;
     }
 
-    private Cidade parseJson(String json){
+    private CidadeBEAN parseJson(String json){
         try {
-            Cidade cidade = new Cidade();
+            CidadeBEAN cidade = new CidadeBEAN();
 
             JSONObject jsonObj = new JSONObject(json);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -71,7 +71,7 @@ public class Utils {
 
 
 
-               return cidade;
+            return cidade;
         }catch (JSONException e){
             e.printStackTrace();
             return null;
