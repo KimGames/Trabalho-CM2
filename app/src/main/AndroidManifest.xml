@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".PrimeiraTelaActivity"
             android:label="@string/lista_alunos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

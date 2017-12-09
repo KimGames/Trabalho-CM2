@@ -10,6 +10,16 @@ public class Cidade implements Serializable{
     private String country;
     private String region;
 
+    public Previsao getPrevisao() {
+        return previsao;
+    }
+
+    public void setPrevisao(Previsao previsao) {
+        this.previsao = previsao;
+    }
+
+    private Previsao previsao;
+
     public Long getId() {
         return id;
     }

@@ -6,77 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.cm.trabalho.weather.FormularioActivity">
 
-    <ImageView
-        android:id="@+id/Imagem"
-        android:layout_width="93dp"
-        android:layout_height="71dp"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="32dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/tNome"
-        android:layout_width="55dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:text="Nome:"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Imagem" />
-
-    <TextView
-        android:id="@+id/Nome"
-        android:layout_width="282dp"
-        android:layout_height="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="160dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tNome"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/tSobrenome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tNome"
-        android:layout_marginTop="8dp"
-        android:text="Sobrenome:"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNome" />
-    <TextView
-        android:id="@+id/Sobrenome"
-        android:layout_width="106dp"
-        android:layout_height="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/Nome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="196dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tSobrenome"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-
 
 
     <TextView
@@ -86,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="RandomUser"
+        android:text="Previsão do Tempo"
         android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -95,30 +24,216 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/Imagem"
+        android:layout_width="107dp"
+        android:layout_height="84dp"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/tCidade"
+        android:layout_width="53dp"
+        android:layout_height="16dp"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:text="Cidade:"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Imagem" />
+
+    <TextView
+        android:id="@+id/Cidade"
+        android:layout_width="279dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tCidade"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tCidade"
+        android:layout_marginTop="24dp"
+        android:text="Estado:"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tCidade" />
+
+    <TextView
+        android:id="@+id/Estado"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Cidade"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
-
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toEndOf="@+id/tEstado"
+        app:layout_constraintTop_toBottomOf="@+id/Cidade" />
     <TextView
+        android:id="@+id/tPais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:layout_marginTop="20dp"
+        android:text="País:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tEstado" />
+
+    <TextView
+        android:id="@+id/Pais"
+        android:layout_width="69dp"
+        android:layout_height="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/tPais"
+        app:layout_constraintTop_toBottomOf="@+id/Estado" />
+
+
+    <TextView
+        android:id="@+id/tTempMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Temperatura Máxima:"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tCondicao" />
+
+    <TextView
+        android:id="@+id/TempMax"
+        android:layout_width="69dp"
+        android:layout_height="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TempMin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toEndOf="@+id/tTempMax"
+        app:layout_constraintTop_toBottomOf="@+id/Pais" />
+
+    <TextView
+        android:id="@+id/TempMin"
+        android:layout_width="69dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toEndOf="@+id/tTempMin"
+        app:layout_constraintTop_toBottomOf="@+id/TempMax" />
+
+    <TextView
+        android:id="@+id/tTempMin"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_alignLeft="@+id/tPais"
+        android:layout_alignStart="@+id/tPais"
+        android:layout_below="@+id/tPais"
+        android:layout_marginTop="20dp"
+        android:text="Temperatura Mínima:"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tTempMax" />
+
+
+    <TextView
+        android:id="@+id/tData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tTempMin"
+        android:layout_alignStart="@+id/tTempMin"
+        android:layout_below="@+id/tCondicao"
+        android:layout_marginTop="8dp"
+        android:text="Data:"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tPais" />
+
+
+    <TextView
+        android:id="@+id/Data"
+        android:layout_width="160dp"
+        android:layout_height="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toEndOf="@+id/tData"
+        app:layout_constraintTop_toBottomOf="@+id/Pais" />
+
+
+    <TextView
+        android:id="@+id/tCondicao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tTempMin"
+        android:layout_marginTop="16dp"
+        android:text="Condição:"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tData" />
+
+
+    <TextView
+        android:id="@+id/Condicao"
+        android:layout_width="156dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/textView7"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toEndOf="@+id/tCondicao"
+        app:layout_constraintTop_toBottomOf="@+id/Data" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -134,7 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView7"
-        android:layout_below="@+id/Sobrenome"
+        android:layout_below="@+id/Estado"
         android:layout_centerHorizontal="true"
         android:layout_alignParentRight="true" />
 
@@ -142,131 +257,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView9"
-        android:layout_below="@+id/textView10"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/Data"
         android:layout_centerHorizontal="true"
         android:layout_alignParentRight="true" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/textView9"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
 
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tSobrenome"
-        android:layout_alignStart="@+id/tSobrenome"
-        android:layout_below="@+id/tSobrenome"
-        android:text="Email:"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView14"
-        android:layout_marginTop="180dp"
-        android:text="Endereço:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView15"
-        android:layout_alignStart="@+id/textView15"
-        android:layout_below="@+id/textView15"
-        android:text="Cidade:"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView16"
-        android:layout_marginTop="12dp"
-        android:text="Estado:"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_below="@+id/textView17"
-        android:text="Username:"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView18"
-        android:layout_alignStart="@+id/textView18"
-        android:layout_below="@+id/textView18"
-        android:layout_marginTop="16dp"
-        android:text="Senha:"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView19"
-        android:layout_alignStart="@+id/textView19"
-        android:layout_below="@+id/textView19"
-        android:text="Nascimento:"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView20"
-        android:layout_alignStart="@+id/textView20"
-        android:layout_alignTop="@+id/textView12"
-        android:layout_marginTop="8dp"
-        android:text="Telefone:"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 </android.support.constraint.ConstraintLayout>

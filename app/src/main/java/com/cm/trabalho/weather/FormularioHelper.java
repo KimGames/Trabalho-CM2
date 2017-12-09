@@ -9,74 +9,67 @@ import android.widget.SeekBar;
 
 public class FormularioHelper {
 
-    private EditText nome;
-    private EditText telefone;
-    private EditText endereco;
-    private EditText email;
-    private SeekBar nota;
-    private ImageView foto;
-    private Aluno aluno;
+    private EditText city;
+    private EditText state;
+    private EditText country;
+    private Cidade cidade;
 
-        public FormularioHelper(FormularioActivity activity){
-            //Associacao de campos da tela a atributos de controle
-            nome = (EditText)activity.findViewById(R.id.edNome);
-            telefone = (EditText)activity.findViewById(R.id.edTelefone);
-            email = (EditText)activity.findViewById(R.id.edEmail);
-            endereco = (EditText)activity.findViewById(R.id.edEndereco);
-            foto = (ImageView) activity.findViewById(R.id.foto);
+    public FormularioHelper(FormularioActivity activity){
+        //Associacao de campos da tela a atributos de controle
+        city = (EditText)activity.findViewById(R.id.Cidade);
+        state = (EditText)activity.findViewById(R.id.Estado);
+        country = (EditText)activity.findViewById(R.id.Pais);
+        cidade = new Cidade();
+    }
 
-            aluno = new Aluno();
-        }
+    public Cidade getCidade(){
+        cidade.setCity(city.getText().toString());
+        cidade.setRegion(state.getText().toString());
+        cidade.setCountry(country.getText().toString());
+        return cidade;
+    }
 
-        public Aluno getAluno(){
-            aluno.setNome(nome.getText().toString());
-            aluno.setTelefone(telefone.getText().toString());
-            aluno.setEmail(email.getText().toString());
-            aluno.setEndereco(endereco.getText().toString());
-            return aluno;
-        }
+    public void setCidade(Cidade cidade){
+        city.setText(cidade.getCity());
+        state.setText(cidade.getRegion());
+        country.setText(cidade.getCountry());
 
-        public void setAluno(Aluno aluno){
-            nome.setText(aluno.getNome());
-            telefone.setText(aluno.getTelefone());
-            endereco.setText(aluno.getEndereco());
-            email.setText(aluno.getEmail());
+        this.cidade = cidade;
 
-            this.aluno = aluno;
-
-            //Carregar a foto do aluno
-
-            if(aluno.getFoto() != null){
-                Log.i("LOG","IMAGEM1: " );
-                carregarFoto(aluno.getFoto());
-            }
-
-
-        }
-
-        public ImageView getFoto(){
-            return foto;
+        //Carregar a foto do cidade
+        /*
+        if(cidade.getFoto() != null){
+            Log.i("LOG","IMAGEM1: " );
+            carregarFoto(cidade.getFoto());
         }
 
 
-        public void carregarFoto(String localFoto){
+    }
 
-            //Carregar o arquivo de imagem
-            Bitmap imagemFoto = BitmapFactory.decodeFile(localFoto);
-
-            Bitmap imagemFotoReduzida =
-                    Bitmap.createScaledBitmap(imagemFoto,100,100,true);
+    public ImageView getFoto(){
+        return foto;
+    }
 
 
-            //Guarda o caminho da foto do aluno
-            aluno.setFoto(localFoto);
+    public void carregarFoto(String localFoto){
 
-            //Atualiza a imagem exibida na tela de formulario
-            foto.setImageBitmap(imagemFotoReduzida);
-            Log.i("LOG","IMAGEM: " );
+        //Carregar o arquivo de imagem
+        Bitmap imagemFoto = BitmapFactory.decodeFile(localFoto);
+
+        Bitmap imagemFotoReduzida =
+                Bitmap.createScaledBitmap(imagemFoto,100,100,true);
+
+
+        //Guarda o caminho da foto do cidade
+        cidade.setFoto(localFoto);
+
+        //Atualiza a imagem exibida na tela de formulario
+        foto.setImageBitmap(imagemFotoReduzida);
+        Log.i("LOG","IMAGEM: " );
+    */
 
 
 
-        }
+    }
 
 }

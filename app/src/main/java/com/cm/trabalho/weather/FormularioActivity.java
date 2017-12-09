@@ -19,30 +19,30 @@ import java.io.File;
 public class FormularioActivity extends AppCompatActivity {
     private Button botao;
     private FormularioHelper helper;
-    private Aluno alunoParaSerAlterado = null;
+    private Cidade cidadeParaSerAlterado = null;
 
     //Variaveis para o controle da camera
     private String localArquivo;
     private static final int FAZER_FOTO = 123;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.formulario);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.formulario);
+/*
+        EditText edCity = (EditText)findViewById(R.id.Cidade);
+        EditText edState = (EditText)findViewById(R.id.Estado);
+        EditText edCountry = (EditText)findViewById(R.id.edEmail);
+        EditText edEndereco = (EditText)findViewById(R.id.edEndereco);
 
-                EditText edNome = (EditText)findViewById(R.id.edNome);
-                EditText edTelefone = (EditText)findViewById(R.id.edTelefone);
-                EditText edEmail = (EditText)findViewById(R.id.edEmail);
-                EditText edEndereco = (EditText)findViewById(R.id.edEndereco);
+        Cidade cidade = new Cidade();
+        cidade.setNome(edCity.getText().toString());
+        cidade.setTelefone(edState.getText().toString());
+        cidade.setEmail(edCountry.getText().toString());
+        cidade.setEndereco(edEndereco.getText().toString());
 
-                Aluno aluno = new Aluno();
-                aluno.setNome(edNome.getText().toString());
-                aluno.setTelefone(edTelefone.getText().toString());
-                aluno.setEmail(edEmail.getText().toString());
-                aluno.setEndereco(edEndereco.getText().toString());
-
-                helper = new FormularioHelper(this);
-                botao = (Button) findViewById(R.id.sbSalvar);
+        helper = new FormularioHelper(this);
+        botao = (Button) findViewById(R.id.sbSalvar);
 
 
                 //Listener da foto
@@ -64,40 +64,41 @@ public class FormularioActivity extends AppCompatActivity {
                 });
 
 
-                //Busca o aluno a ser alterado
-                alunoParaSerAlterado = (Aluno) getIntent().getSerializableExtra("ALUNO_SELECIONADO");
+                //Busca o cidade a ser alterado
+                cidadeParaSerAlterado = (Cidade) getIntent().getSerializableExtra("ALUNO_SELECIONADO");
 
-                if (alunoParaSerAlterado !=  null){
-                    //Atualiza a tela com os dados do aluno
-                    Log.i("ALUNO_SELECIONADO","ALUNO SELECIONADO: " + alunoParaSerAlterado.getNome() );
-                    helper.setAluno(alunoParaSerAlterado);
+                if (cidadeParaSerAlterado !=  null){
+                    //Atualiza a tela com os dados do cidade
+                    Log.i("ALUNO_SELECIONADO","ALUNO SELECIONADO: " + cidadeParaSerAlterado.getNome() );
+                    helper.setCidade(cidadeParaSerAlterado);
                 }
 
 
-                botao.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //utilizando helper
-                        Aluno aluno1 = helper.getAluno();
-                        Toast.makeText(FormularioActivity.this,aluno1.getNome(),Toast.LENGTH_LONG).show();
 
-                        AlunoDAO dao = new AlunoDAO(FormularioActivity.this);
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //utilizando helper
+                Cidade cidade1 = helper.getCidade();
+                Toast.makeText(FormularioActivity.this,cidade1.getNome(),Toast.LENGTH_LONG).show();
 
-                        //verificacao para salvar ou cadastrar o aluno
-                        if(aluno1.getId()==null){
-                            dao.cadastrar(aluno1);
-                        }else{
-                            dao.alterar(aluno1);
-                        }
+                CidadeDAO dao = new CidadeDAO(FormularioActivity.this);
 
-                        dao.close();
-                        // encerra a Activity
-                        finish();
-                        Log.i("CADASTRO_ALUNO","Formulário Encerrado");
-                    }
-                });
+                //verificacao para salvar ou cadastrar o cidade
+                if(cidade1.getId()==null){
+                    dao.cadastrarCidade(cidade1);
+                }else{
+                    dao.cadastrarCidade(cidade1);
+                }
 
-        }
+                dao.close();
+                // encerra a Activity
+                finish();
+                Log.i("CADASTRO_ALUNO","Formulário Encerrado");
+            }
+        });
+
+    }
 
 
     @Override
@@ -115,6 +116,6 @@ public class FormularioActivity extends AppCompatActivity {
             }
         }
 
-
+*/
     }
 }

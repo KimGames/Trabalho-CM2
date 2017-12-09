@@ -12,7 +12,6 @@ public class Previsao {
     private String high;
     private String low;
     private String condicao;
-    private Cidade cidade;
 
     public String getCode() {
         return code;
@@ -62,11 +61,4 @@ public class Previsao {
         this.condicao = condicao;
     }
 
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
 }
