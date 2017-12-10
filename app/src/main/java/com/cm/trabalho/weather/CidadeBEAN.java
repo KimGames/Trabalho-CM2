@@ -1,21 +1,22 @@
 package com.cm.trabalho.weather;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class CidadeBEAN {
+public class CidadeBEAN implements Serializable {
 
     private Long id;
     private String lastBuildDate;
     private String city;
     private String country;
     private String region;
-    private Previsao previsao;
+    private ArrayList<Previsao> previsao;
 
     public CidadeBEAN(){
-        previsao = new Previsao();
+        this.previsao = new ArrayList<>();
     }
 
-    public Previsao getPrevisao() {
+    public ArrayList<Previsao> getPrevisao() {
         return previsao;
     }
 
