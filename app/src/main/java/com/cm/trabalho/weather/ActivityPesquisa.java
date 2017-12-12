@@ -3,6 +3,7 @@ package com.cm.trabalho.weather;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +33,7 @@ public class ActivityPesquisa extends AppCompatActivity {
                 Intent intent = new Intent(ActivityPesquisa.this,ActivityResultados.class);
                 intent.putExtra("PESQUISA",c);
                 startActivity(intent);
+                Log.i("TAG","BIROSCA");
 
             }
         });

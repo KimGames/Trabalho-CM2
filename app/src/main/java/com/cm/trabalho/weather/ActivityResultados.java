@@ -41,7 +41,7 @@ public class ActivityResultados extends Activity {
 
         @Override
         protected void onPreExecute(){
-            load = ProgressDialog.show(ActivityResultados.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            //load = ProgressDialog.show(ActivityResultados.this, "Por favor Aguarde ...", "Recuperando Informações...");
         }
 
 
@@ -74,7 +74,7 @@ public class ActivityResultados extends Activity {
             String code = p.getCode();
             // todo
 
-            load.dismiss();
+            //load.dismiss();
         }
     }
 }
