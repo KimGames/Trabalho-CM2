@@ -35,7 +35,9 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
                 + "day TEXT, "
                 + "high TEXT, "
                 + "low TEXT, "
-                + "condicao TEXT, ";
+                + "condicao TEXT, "
+                + "cidade_id INTEGER "
+                + "FOREIGN KEY(cidade_id) REFERENCES CidadeBEAN(id)";
         //EXECUCAO
         database.execSQL(ddl);
     }
@@ -53,7 +55,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         onCreate(database);
     }
 
-    public void cadastrarPrevisao(Previsao previsao){
+    public void cadastrarPrevisao(Previsao previsao, CidadeBEAN cidadeBEAN){
 
         //objeto para armazenar os valores dos campos
         ContentValues values = new ContentValues();
@@ -64,6 +66,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         values.put("high", previsao.getHigh());
         values.put("low", previsao.getLow());
         values.put("condicao", previsao.getCondicao());
+        values.put("cidade_id", cidadeBEAN.getId());
         //inserir dados da previsao no BD
         getWritableDatabase().insert(TABELA, null, values);
         Log.i(TAG, "Previsao cadastrada: " + previsao.getCondicao());
@@ -72,7 +75,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
     public List<Previsao> listarPrevisoes(){
 
         List<Previsao> lista = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABELA + " ORDER BY CIDADE_ID";
+        String sql = "SELECT * FROM " + TABELA + " ORDER BY CODE";
         Cursor cursor = getReadableDatabase().rawQuery(sql,null);
         try{
 
@@ -112,7 +115,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         Log.i(TAG, "Previsao Deletada: " + previsao.getCondicao());
     }
 
-    public void alterarPrevisao(Previsao previsao){
+    public void alterarPrevisao(Previsao previsao, CidadeBEAN cidadeBEAN){
 
         ContentValues values = new ContentValues();
         values.put("code", previsao.getCode());
@@ -121,6 +124,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         values.put("high", previsao.getHigh());
         values.put("low", previsao.getLow());
         values.put("condicao", previsao.getCondicao());
+        values.put("cidade_id", cidadeBEAN.getId());
         //Colecao de Valores de parametro do sql
         String[] args = {previsao.getCode().toString()};
         //Altera dados da cidade no BD
