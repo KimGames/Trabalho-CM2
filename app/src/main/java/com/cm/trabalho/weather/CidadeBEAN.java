@@ -1,7 +1,6 @@
 package com.cm.trabalho.weather;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class CidadeBEAN implements Serializable {
 
