@@ -83,12 +83,14 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
 
                 //Criacao de nova referencia para Previsao
                 Previsao previsao = new Previsao();
+                CidadeBEAN cidadeBEAN = new CidadeBEAN();
                 previsao.setCode(cursor.getString(0));
                 previsao.setDate(cursor.getString(1));
                 previsao.setDay(cursor.getString(2));
                 previsao.setHigh(cursor.getString(3));
                 previsao.setLow(cursor.getString(4));
                 previsao.setCondicao(cursor.getString(5));
+                cidadeBEAN.setId(cursor.getLong(6));
                 lista.add(previsao);
             }
         }
