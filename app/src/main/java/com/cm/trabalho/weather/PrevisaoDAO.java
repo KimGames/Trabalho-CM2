@@ -53,37 +53,40 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         onCreate(database);
     }
 
-    public void cadastrarPrevisao(CidadeBEAN cidade){
+    public void cadastrarPrevisao(Previsao previsao){
 
         //objeto para armazenar os valores dos campos
         ContentValues values = new ContentValues();
         //Definicao dos campos da tabela
-        values.put("lastBuildDate", cidade.getLastBuildDate());
-        values.put("city", cidade.getCity());
-        values.put("country", cidade.getCountry());
-        values.put("region", cidade.getRegion());
-        //inserir dados da cidade no BD
+        values.put("code", previsao.getCode());
+        values.put("date", previsao.getDate());
+        values.put("day", previsao.getDay());
+        values.put("high", previsao.getHigh());
+        values.put("low", previsao.getLow());
+        values.put("condicao", previsao.getCondicao());
+        //inserir dados da previsao no BD
         getWritableDatabase().insert(TABELA, null, values);
-        Log.i(TAG, "CidadeBEAN cadastrada: " + cidade.getCity());
+        Log.i(TAG, "Previsao cadastrada: " + previsao.getCondicao());
     }
 
-    public List<CidadeBEAN> listarCidadeBEANs(){
+    public List<Previsao> listarPrevisoes(){
 
-        List<CidadeBEAN> lista = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABELA + " ORDER BY CITY";
+        List<Previsao> lista = new ArrayList<>();
+        String sql = "SELECT * FROM " + TABELA + " ORDER BY CODE";
         Cursor cursor = getReadableDatabase().rawQuery(sql,null);
         try{
 
             while(cursor.moveToNext()){
 
-                //Criacao de nova referencia para CidadeBEAN
-                CidadeBEAN cidade = new CidadeBEAN();
-                cidade.setId(cursor.getLong(0));
-                cidade.setLastBuildDate(cursor.getString(1));
-                cidade.setCity(cursor.getString(2));
-                cidade.setCountry(cursor.getString(3));
-                cidade.setRegion(cursor.getString(4));
-                lista.add(cidade);
+                //Criacao de nova referencia para Previsao
+                Previsao previsao = new Previsao();
+                previsao.setCode(cursor.getString(0));
+                previsao.setDate(cursor.getString(1));
+                previsao.setDay(cursor.getString(2));
+                previsao.setHigh(cursor.getString(3));
+                previsao.setLow(cursor.getString(4));
+                previsao.setCondicao(cursor.getString(5));
+                lista.add(previsao);
             }
         }
 
