@@ -10,13 +10,13 @@ public class CidadeBEAN implements Serializable {
     private String city;
     private String country;
     private String region;
-    private ArrayList<Previsao> previsao;
+    private Previsao previsao;
 
-    public CidadeBEAN(){
-        this.previsao = new ArrayList<>();
+    public void setPrevisao(Previsao previsao) {
+        this.previsao = previsao;
     }
 
-    public ArrayList<Previsao> getPrevisao() {
+    public Previsao getPrevisao() {
         return previsao;
     }
 

@@ -35,7 +35,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
                 + "day TEXT, "
                 + "high TEXT, "
                 + "low TEXT, "
-                + "condicao TEXT)";
+                + "condicao TEXT, ";
         //EXECUCAO
         database.execSQL(ddl);
     }
@@ -72,7 +72,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
     public List<Previsao> listarPrevisoes(){
 
         List<Previsao> lista = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABELA + " ORDER BY CODE";
+        String sql = "SELECT * FROM " + TABELA + " ORDER BY CIDADE_ID";
         Cursor cursor = getReadableDatabase().rawQuery(sql,null);
         try{
 
@@ -103,26 +103,28 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         return lista;
     }
 
-    public void deletarCidadeBEAN(CidadeBEAN cidade){
+    public void deletarPrevisao(Previsao previsao){
 
         //definicao do array de parametros
-        String[] args = {cidade.getId().toString()};
+        String[] args = {previsao.getCode().toString()};
         //exclusao do aluno
         getWritableDatabase().delete(TABELA,"id=?", args);
-        Log.i(TAG, "CidadeBEAN Deletada: " + cidade.getCity());
+        Log.i(TAG, "Previsao Deletada: " + previsao.getCondicao());
     }
 
-    public void alterarCidadeBEAN(CidadeBEAN cidade){
+    public void alterarPrevisao(Previsao previsao){
 
         ContentValues values = new ContentValues();
-        values.put("lastBuildDate", cidade.getLastBuildDate());
-        values.put("city", cidade.getCity());
-        values.put("country", cidade.getCountry());
-        values.put("region", cidade.getRegion());
+        values.put("code", previsao.getCode());
+        values.put("date", previsao.getDate());
+        values.put("day", previsao.getDay());
+        values.put("high", previsao.getHigh());
+        values.put("low", previsao.getLow());
+        values.put("condicao", previsao.getCondicao());
         //Colecao de Valores de parametro do sql
-        String[] args = {cidade.getId().toString()};
+        String[] args = {previsao.getCode().toString()};
         //Altera dados da cidade no BD
         getWritableDatabase().update(TABELA, values,"id=?", args);
-        Log.i(TAG, "CidadeBEAN Alterada: " + cidade.getCity() );
+        Log.i(TAG, "CidadeBEAN Alterada: " + previsao.getCondicao() );
     }
 }
