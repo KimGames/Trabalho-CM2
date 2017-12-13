@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ImageView;
 import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,8 +48,6 @@ public class ActivityResultados extends Activity {
                 onBackPressed();
             }
         });
-
-
         //Chama Async Task
         download.execute();
 
@@ -123,7 +122,7 @@ public class ActivityResultados extends Activity {
             else if(code.equals("8") || code.equals("9")){
                 imagemIlustrativa.setImageResource();
             }
-            else if(code.equals("5") || code.equals("7") || code.equals("24")){
+            else if(code.equals("13") || code.equals("14") || code.equals("15")){
                 imagemIlustrativa.setImageResource();
             }
 
