@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -15,6 +16,7 @@ public class ActivityResultados extends Activity {
     private TextView condicao;
     private TextView tempmax;
     private TextView tempmin;
+    private ImageView imagemIlustrativa;
     private ProgressDialog load;
 
     @Override
@@ -31,7 +33,7 @@ public class ActivityResultados extends Activity {
         condicao = (TextView)findViewById(R.id.Condicao);
         tempmax = (TextView)findViewById(R.id.TempMax);
         tempmin = (TextView)findViewById(R.id.TempMin);
-
+        imagemIlustrativa = (ImageView)findViewById(R.id.Imagem);
         //Chama Async Task
         download.execute();
 
@@ -41,7 +43,7 @@ public class ActivityResultados extends Activity {
 
         @Override
         protected void onPreExecute(){
-            //load = ProgressDialog.show(ActivityResultados.this, "Por favor Aguarde ...", "Recuperando Informações...");
+            load = ProgressDialog.show(ActivityResultados.this, "Carregando", "Por favor Aguarde...");
         }
 
 
@@ -72,9 +74,36 @@ public class ActivityResultados extends Activity {
             tempmin.setText(p.getLow());
 
             String code = p.getCode();
-            // todo
+            if(code.equals("0") || code.equals("1") || code.equals("2")
+                    || code.equals("3") || code.equals("4") || code.equals("45")){
+                imagemIlustrativa.setImageResource();
+            }
 
-            //load.dismiss();
+            else if(code.equals("5") || code.equals("7") || code.equals("24")){
+                imagemIlustrativa.setImageResource();
+            }
+            else if(code.equals("6") || code.equals("10") || code.equals("11")
+                    || code.equals("40") || code.equals("35") || code.equals("37")
+                    || code.equals("38") || code.equals("39")|| code.equals("47")){
+                imagemIlustrativa.setImageResource();
+            }
+            else if(code.equals("12") ){
+                imagemIlustrativa.setImageResource();
+            }
+            else if(code.equals("8") || code.equals("9")){
+                imagemIlustrativa.setImageResource();
+            }
+            else if(code.equals("5") || code.equals("7") || code.equals("24")){
+                imagemIlustrativa.setImageResource();
+            }
+
+
+
+
+
+
+
+            load.dismiss();
         }
     }
 }
