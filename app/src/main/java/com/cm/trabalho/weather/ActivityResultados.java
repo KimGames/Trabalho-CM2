@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ public class ActivityResultados extends Activity {
     private TextView tempmax;
     private TextView tempmin;
     private ImageView imagemIlustrativa;
-    private ProgressDialog load;
+
 
     private Button button_voltar;
 
@@ -72,7 +73,7 @@ public class ActivityResultados extends Activity {
 
         @Override
         protected void onPreExecute(){
-            load = ProgressDialog.show(ActivityResultados.this, "Carregando", "Por favor Aguarde...");
+
         }
 
 
@@ -90,8 +91,13 @@ public class ActivityResultados extends Activity {
                     nome_cidade +"%2C%20"+ nome_estado +"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
         }
 
+
+
         @Override
         protected void onPostExecute(CidadeBEAN cidade){
+try {
+
+
             city.setText(cidade.getCity().substring(0,1).toUpperCase()+cidade.getCity().substring(1));
             state.setText(cidade.getRegion().substring(0,1).toUpperCase()+cidade.getRegion().substring(1) );
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
@@ -150,7 +156,9 @@ public class ActivityResultados extends Activity {
             else{
                 imagemIlustrativa.setImageResource(R.mipmap.ic_launcher);
             }
-            load.dismiss();
+}catch (Exception e){
+    setContentView(R.layout.resultado_nao_encontrado);
+}
         }
     }
 }
