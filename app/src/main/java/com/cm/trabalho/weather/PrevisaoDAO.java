@@ -36,8 +36,8 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
                 + "high TEXT, "
                 + "low TEXT, "
                 + "condicao TEXT, "
-                + "cidade_id INTEGER "
-                + "FOREIGN KEY(cidade_id) REFERENCES CidadeBEAN(id)";
+                + "cidade_id INTEGER )";
+                //+ "FOREIGN KEY(cidade_id) REFERENCES CidadeBEAN(id))";
         //EXECUCAO
         database.execSQL(ddl);
     }
@@ -75,8 +75,8 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
     public List<Previsao> listarPrevisoes(){
 
         List<Previsao> lista = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABELA + " ORDER BY CODE";
-        Cursor cursor = getReadableDatabase().rawQuery(sql,null);
+        String sql = "SELECT * FROM " + TABELA; //+ " ORDER BY code";
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
         try{
 
             while(cursor.moveToNext()){
