@@ -16,4 +16,6 @@
     <string name="acharNoMapa">Achar no Mapa</string>
     <string name="enviarEmail">Enviar E-mail</string>
     <string name="deletar">Deletar</string>
+
+    <string name="titulo_tela_resultados">Previsão do Tempo</string>
 </resources>
