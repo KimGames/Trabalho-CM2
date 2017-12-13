@@ -6,26 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.cm.trabalho.weather.ActivityPesquisa">
 
-    <ImageView
-        android:id="@+id/Logo"
-        android:layout_width="126dp"
-        android:layout_height="96dp"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="60dp"
         android:text="Cidade"
         android:textSize="30px"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/edCidade"
@@ -33,23 +23,23 @@
         android:layout_height="52dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Informe a Cidade"
         android:inputType="textPersonName"
         android:textSize="30px"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/txttelefone"
         android:layout_width="53dp"
         android:layout_height="25dp"
 
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="40dp"
         android:text="Estado"
         android:textSize="30px"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -61,13 +51,12 @@
         android:layout_height="46dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Informe o Estado"
         android:inputType="textPersonName"
         android:textSize="30px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edCidade" />
 
@@ -76,12 +65,24 @@
         android:id="@+id/bPesquisar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="68dp"
         android:text="Pesquisar"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edEstado" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="153dp"
+        android:layout_height="138dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_logo" />
 
 
 </android.support.constraint.ConstraintLayout>

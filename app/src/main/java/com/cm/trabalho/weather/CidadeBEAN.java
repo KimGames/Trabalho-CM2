@@ -11,6 +11,11 @@ public class CidadeBEAN implements Serializable {
     private String region;
     private Previsao previsao;
 
+    public CidadeBEAN(){
+        this.previsao = new Previsao();
+    }
+
+
     public void setPrevisao(Previsao previsao) {
         this.previsao = previsao;
     }
