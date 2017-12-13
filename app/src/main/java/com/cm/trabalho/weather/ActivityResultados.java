@@ -4,12 +4,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-<<<<<<< HEAD
+
 import android.widget.ImageView;
-=======
+
 import android.view.KeyEvent;
 import android.widget.Button;
->>>>>>> 44ebf940b013930a5a95a2d76495276c4d7241e5
 import android.widget.TextView;
 
 
@@ -40,13 +39,12 @@ public class ActivityResultados extends Activity {
         condicao = (TextView)findViewById(R.id.Condicao);
         tempmax = (TextView)findViewById(R.id.TempMax);
         tempmin = (TextView)findViewById(R.id.TempMin);
-<<<<<<< HEAD
+
         imagemIlustrativa = (ImageView)findViewById(R.id.Imagem);
-=======
 
         //button_voltar = (Button)findViewById(R.id.button_voltar);
 
->>>>>>> 44ebf940b013930a5a95a2d76495276c4d7241e5
+
         //Chama Async Task
         download.execute();
 
@@ -122,7 +120,7 @@ public class ActivityResultados extends Activity {
             else if(code.equals("8") || code.equals("9")){
                 imagemIlustrativa.setImageResource();
             }
-            else if(code.equals("5") || code.equals("7") || code.equals("24")){
+            else if(code.equals("13") || code.equals("14") || code.equals("15")){
                 imagemIlustrativa.setImageResource();
             }
 
