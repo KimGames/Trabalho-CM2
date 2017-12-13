@@ -32,7 +32,9 @@
         </activity>
         <activity
             android:name=".ActivityResultados"
-            android:label="@string/lista_alunos"/>
+            android:label="Resultados"/>
+        <activity android:name=".ActivityNE"
+            android:label="Nao Encontrado"/>
 
     </application>
 
