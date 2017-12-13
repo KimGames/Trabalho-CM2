@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
+import android.view.View;
 import android.widget.ImageView;
-
+import android.widget.ImageView;
 import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,12 +39,15 @@ public class ActivityResultados extends Activity {
         condicao = (TextView)findViewById(R.id.Condicao);
         tempmax = (TextView)findViewById(R.id.TempMax);
         tempmin = (TextView)findViewById(R.id.TempMin);
-
         imagemIlustrativa = (ImageView)findViewById(R.id.Imagem);
 
-        //button_voltar = (Button)findViewById(R.id.button_voltar);
-
-
+        button_voltar = (Button)findViewById(R.id.button_voltar);
+        button_voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //Chama Async Task
         download.execute();
 
@@ -62,8 +65,7 @@ public class ActivityResultados extends Activity {
 
     @Override
     public void onBackPressed() {
-        // do something on back.
-        return;
+        super.onBackPressed();
     }
 
     private class GetJson extends AsyncTask<Void, Void, CidadeBEAN> {
