@@ -142,14 +142,6 @@ public class ActivityResultados extends Activity {
             else{
                 imagemIlustrativa.setImageResource(R.mipmap.ic_launcher);
             }
-
-
-
-
-
-
-
-
             load.dismiss();
         }
     }
