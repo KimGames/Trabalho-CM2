@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ActivityPesquisa"
-            android:label="Clima" >
+            android:label="iClima" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
