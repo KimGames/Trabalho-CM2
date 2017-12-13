@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 
@@ -35,6 +36,22 @@ public class ActivityResultados extends Activity {
         //Chama Async Task
         download.execute();
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            // do something on back.
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // do something on back.
+        return;
     }
 
     private class GetJson extends AsyncTask<Void, Void, CidadeBEAN> {
