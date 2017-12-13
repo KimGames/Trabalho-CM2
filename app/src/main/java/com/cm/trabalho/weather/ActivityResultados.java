@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -17,6 +18,8 @@ public class ActivityResultados extends Activity {
     private TextView tempmax;
     private TextView tempmin;
     private ProgressDialog load;
+
+    private Button button_voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class ActivityResultados extends Activity {
         condicao = (TextView)findViewById(R.id.Condicao);
         tempmax = (TextView)findViewById(R.id.TempMax);
         tempmin = (TextView)findViewById(R.id.TempMin);
+
+        //button_voltar = (Button)findViewById(R.id.button_voltar);
 
         //Chama Async Task
         download.execute();
