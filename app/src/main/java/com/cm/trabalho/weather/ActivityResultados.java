@@ -103,6 +103,14 @@ try {
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
             Previsao p = cidade.getPrevisao();
 
+            CidadeDAO daoCity = new CidadeDAO(ActivityResultados.this);
+            daoCity.cadastrarCidadeBEAN(cidade);
+            daoCity.close();
+
+            PrevisaoDAO dao = new PrevisaoDAO(ActivityResultados.this);
+            dao.cadastrarPrevisao(p,cidade);
+            dao.close();
+
             data.setText(p.getDate());
             condicao.setText(p.getCondicao());
             tempmax.setText(p.getHigh());
