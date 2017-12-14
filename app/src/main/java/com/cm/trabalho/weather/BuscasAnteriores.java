@@ -1,6 +1,7 @@
 package com.cm.trabalho.weather;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -61,7 +62,7 @@ public class BuscasAnteriores extends AppCompatActivity {
             holder.text = (TextView) rowview.findViewById(R.id.listBuscasText);
             holder.image = (ImageView) rowview.findViewById(R.id.listBuscasImage);
             holder.text.setText(previsoes.get(i).getDate() + " " + previsoes.get(i).getCondicao());
-
+            rowview.setTag(i);
             String code = previsoes.get(i).getCode();
             if(code.equals("0") || code.equals("1") || code.equals("2")
                     || code.equals("3") || code.equals("4") || code.equals("45")){
@@ -105,8 +106,11 @@ public class BuscasAnteriores extends AppCompatActivity {
             rowview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    Toast.makeText(context, "You Clicked ", Toast.LENGTH_LONG).show();
+                    int position = (int)v.getTag();
+                    Previsao previsao = (Previsao)getItem(position);
+                    Intent intent = new Intent(BuscasAnteriores.this, ActivityResultados.class);
+                    intent.putExtra("PREVISAO",previsao.getCode());
+                    startActivity(intent);
                 }
             });
 

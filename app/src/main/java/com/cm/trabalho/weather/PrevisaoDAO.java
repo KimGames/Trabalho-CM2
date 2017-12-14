@@ -108,6 +108,36 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         return lista;
     }
 
+    public Previsao getPrev(String code){
+        String sql = "SELECT * FROM " + TABELA + " WHERE code = '" + code + "'";
+        Previsao prev = new Previsao();;
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+
+        try{
+
+            while(cursor.moveToNext()){
+                CidadeBEAN cidadeBEAN = new CidadeBEAN();
+                prev.setCode(cursor.getString(0));
+                prev.setDate(cursor.getString(1));
+                prev.setDay(cursor.getString(2));
+                prev.setHigh(cursor.getString(3));
+                prev.setLow(cursor.getString(4));
+                prev.setCondicao(cursor.getString(5));
+                cidadeBEAN.setId(cursor.getLong(6));
+            }
+        }
+        catch (SQLException e ){
+
+            Log.e(TAG, e.getMessage());
+        }
+
+        finally {
+            cursor.close();
+        }
+
+        return prev;
+    }
+
     public void deletarPrevisao(Previsao previsao){
 
         //definicao do array de parametros

@@ -63,7 +63,28 @@ public class CidadeDAO extends SQLiteOpenHelper{
         getWritableDatabase().insert(TABELA, null, values);
         Log.i(TAG, "CidadeBEAN cadastrada: " + cidade.getCity());
     }
+    public Cidade getCidade(String codePrev){
+        String sql = "SELECT * FROM " + TABELA + " WHERE id IN (SELECT cidade_id FROM Previsoes WHERE code = " + codePrev +")";
+        Cidade cid = new Cidade();
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
 
+        try{
+            while(cursor.moveToNext()){
+                cid.setCity(cursor.getString(0));
+                cid.setState(cursor.getString(1));
+            }
+        }
+        catch (SQLException e ){
+
+            Log.e(TAG, e.getMessage());
+        }
+
+        finally {
+            cursor.close();
+        }
+
+        return cid;
+    }
     public List<CidadeBEAN> listarCidadeBEANs(){
 
         List<CidadeBEAN> lista = new ArrayList<>();
