@@ -57,14 +57,12 @@ public class ActivityResultados extends Activity {
 
             PrevisaoDAO daoPrev = new PrevisaoDAO(this);
             Previsao p = daoPrev.getPrev(code);
+            CidadeBEAN cidade = daoPrev.getCidade(p.getCode());
             daoPrev.close();
 
-            CidadeDAO daoCity = new CidadeDAO(this);
-            Cidade cidade = daoCity.getCidade(p.getCode());
-            daoCity.close();
             city.setText(cidade.getCity());
-            state.setText(cidade.getState() );
-            //country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
+            state.setText(cidade.getRegion() );
+            country.setText(cidade.getCountry());
             data.setText(p.getDate());
             condicao.setText(p.getCondicao());
             tempmax.setText(p.getHigh());
@@ -162,11 +160,9 @@ try {
             country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
             Previsao p = cidade.getPrevisao();
 
-            CidadeDAO daoCity = new CidadeDAO(ActivityResultados.this);
-            daoCity.cadastrarCidadeBEAN(cidade);
-            daoCity.close();
-
             PrevisaoDAO dao = new PrevisaoDAO(ActivityResultados.this);
+            dao.cadastrarCidadeBEAN(cidade);
+            cidade = dao.getCidade(cidade);
             dao.cadastrarPrevisao(p,cidade);
             dao.close();
 
