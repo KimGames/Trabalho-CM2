@@ -24,7 +24,6 @@ public class ActivityResultados extends Activity {
     private ImageView imagemIlustrativa;
 
 
-    private Button button_voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +41,6 @@ public class ActivityResultados extends Activity {
             tempmax = (TextView) findViewById(R.id.TempMax);
             tempmin = (TextView) findViewById(R.id.TempMin);
             imagemIlustrativa = (ImageView) findViewById(R.id.Imagem);
-
-            button_voltar = (Button) findViewById(R.id.button_voltar);
-            button_voltar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressed();
-                }
-            });
             //Chama Async Task
         if(code == null) {
             download.execute();
@@ -121,10 +112,6 @@ public class ActivityResultados extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 
     private class GetJson extends AsyncTask<Void, Void, CidadeBEAN> {
 
