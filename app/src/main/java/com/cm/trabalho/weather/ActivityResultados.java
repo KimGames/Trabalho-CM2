@@ -54,6 +54,23 @@ public class ActivityResultados extends Activity {
         if(code == null) {
             download.execute();
         }else{
+
+            PrevisaoDAO daoPrev = new PrevisaoDAO(this);
+            Previsao p = daoPrev.getPrev(code);
+            daoPrev.close();
+
+            CidadeDAO daoCity = new CidadeDAO(this);
+            Cidade cidade = daoCity.getCidade(p.getCode());
+            daoCity.close();
+            city.setText(cidade.getCity());
+            state.setText(cidade.getState() );
+            //country.setText(cidade.getCountry().substring(0,1).toUpperCase()+cidade.getCountry().substring(1) );
+            data.setText(p.getDate());
+            condicao.setText(p.getCondicao());
+            tempmax.setText(p.getHigh());
+            tempmin.setText(p.getLow());
+
+
             if(code.equals("0") || code.equals("1") || code.equals("2")
                     || code.equals("3") || code.equals("4") || code.equals("45")){
                 imagemIlustrativa.setImageResource(R.mipmap.ic_t);
