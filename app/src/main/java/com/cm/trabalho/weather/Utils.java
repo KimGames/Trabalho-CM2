@@ -66,7 +66,7 @@ public class Utils {
             String low = previsoes.getString("low");
             p.setHigh(converterFC(high));
             p.setLow(converterFC(low));
-            p.setCode(previsoes.getString("code"));
+            p.setCodeTemp(previsoes.getString("code"));
 
 
 

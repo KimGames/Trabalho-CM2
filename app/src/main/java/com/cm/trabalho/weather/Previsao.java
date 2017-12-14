@@ -6,18 +6,24 @@ package com.cm.trabalho.weather;
 
 public class Previsao {
 
-    private String code;
+    private int code;
+    private String codeTemp;
     private String date;
     private String day;
     private String high;
     private String low;
     private String condicao;
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
+    public String getCodeTemp(){
+        return this.codeTemp;
+    }
 
-    public void setCode(String code) {
+    public void setCodeTemp(String code){this.codeTemp = code;}
+
+    public void setCode(int code) {
         this.code = code;
     }
 

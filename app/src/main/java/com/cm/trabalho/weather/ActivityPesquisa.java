@@ -45,12 +45,24 @@ public class ActivityPesquisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Cidade c = new Cidade();
-                c.setCity(cidade.getText().toString());
-                c.setState(estado.getText().toString());
-                Intent intent = new Intent(ActivityPesquisa.this,ActivityResultados.class);
-                intent.putExtra("PESQUISA",c);
-                startActivity(intent);
-                Log.i("TAG","BIROSCA");
+                if(cidade.getText().toString() != null && !cidade.getText().toString().equals("")
+                        && estado.getText().toString() != null && !estado.getText().toString().equals("")){
+                    c.setCity(cidade.getText().toString());
+                    c.setState(estado.getText().toString());
+                    Intent intent = new Intent(ActivityPesquisa.this,ActivityResultados.class);
+                    intent.putExtra("PESQUISA",c);
+                    startActivity(intent);
+                    Log.i("TAG","BIROSCA");
+                }else{
+                    int duration = Toast.LENGTH_SHORT;
+                    CharSequence text = "Preencha todos os campos";
+                    Context context = getApplicationContext();
+
+
+                    Toast toast = Toast.makeText(context,text,duration);
+                    toast.show();
+                }
+
 
             }
         });

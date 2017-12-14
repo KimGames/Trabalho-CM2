@@ -8,25 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class ActivityNE extends AppCompatActivity {
-    Button button_voltar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-
-        button_voltar = (Button)findViewById(R.id.button_voltar2);
-        button_voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-
     }
-
-
-
-
-
 }
