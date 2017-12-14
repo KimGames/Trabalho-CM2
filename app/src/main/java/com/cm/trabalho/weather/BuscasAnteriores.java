@@ -29,6 +29,7 @@ public class BuscasAnteriores extends AppCompatActivity {
 
         private List<Previsao> previsoes;
         private LayoutInflater inflater;
+        private CidadeBEAN cidade;
         Context context;
 
         public CustomAdapter(Context context){
@@ -61,9 +62,13 @@ public class BuscasAnteriores extends AppCompatActivity {
             rowview = inflater.inflate(R.layout.buscas_list, null);
             holder.text = (TextView) rowview.findViewById(R.id.listBuscasText);
             holder.image = (ImageView) rowview.findViewById(R.id.listBuscasImage);
-            holder.text.setText(previsoes.get(i).getDate() + " " + previsoes.get(i).getCondicao());
+            PrevisaoDAO dao = new PrevisaoDAO(context);
+            cidade = dao.getCidade(previsoes.get(i).getCode());
+            dao.close();
+
+            holder.text.setText(cidade.getCity() + " "+previsoes.get(i).getDate());
             rowview.setTag(i);
-            String code = previsoes.get(i).getCode();
+            String code = previsoes.get(i).getCodeTemp();
             if(code.equals("0") || code.equals("1") || code.equals("2")
                     || code.equals("3") || code.equals("4") || code.equals("45")){
                 holder.image.setImageResource(R.mipmap.ic_t);
@@ -109,7 +114,8 @@ public class BuscasAnteriores extends AppCompatActivity {
                     int position = (int)v.getTag();
                     Previsao previsao = (Previsao)getItem(position);
                     Intent intent = new Intent(BuscasAnteriores.this, ActivityResultados.class);
-                    intent.putExtra("PREVISAO",previsao.getCode());
+                    //Intent intent = new Intent(BuscasAnteriores.this, ActivityResultados.class);
+                    intent.putExtra("PREVISAO",String.valueOf(previsao.getCode()));
                     startActivity(intent);
                 }
             });

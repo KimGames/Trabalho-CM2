@@ -31,7 +31,8 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
 
         //Definicao do comando DDL a ser executado
         String ddl = "CREATE TABLE " + TABELA + "( "
-                + "code TEXT PRIMARY KEY, "
+                + "code INTEGER PRIMARY KEY, "
+                + "codeTemp STRING, "
                 + "date TEXT, "
                 + "day TEXT, "
                 + "high TEXT, "
@@ -68,7 +69,8 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         //objeto para armazenar os valores dos campos
         ContentValues values = new ContentValues();
         //Definicao dos campos da tabela
-        values.put("code", previsao.getCode());
+        //values.put("code", previsao.getCode());
+        values.put("codeTemp", previsao.getCodeTemp());
         values.put("date", previsao.getDate());
         values.put("day", previsao.getDay());
         values.put("high", previsao.getHigh());
@@ -92,13 +94,14 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
                 //Criacao de nova referencia para Previsao
                 Previsao previsao = new Previsao();
                 CidadeBEAN cidadeBEAN = new CidadeBEAN();
-                previsao.setCode(cursor.getString(0));
-                previsao.setDate(cursor.getString(1));
-                previsao.setDay(cursor.getString(2));
-                previsao.setHigh(cursor.getString(3));
-                previsao.setLow(cursor.getString(4));
-                previsao.setCondicao(cursor.getString(5));
-                cidadeBEAN.setId(cursor.getLong(6));
+                previsao.setCode(Integer.parseInt(cursor.getString(0)));
+                previsao.setCodeTemp(cursor.getString(1));
+                previsao.setDate(cursor.getString(2));
+                previsao.setDay(cursor.getString(3));
+                previsao.setHigh(cursor.getString(4));
+                previsao.setLow(cursor.getString(5));
+                previsao.setCondicao(cursor.getString(6));
+                cidadeBEAN.setId(cursor.getLong(7));
                 lista.add(previsao);
             }
         }
@@ -116,7 +119,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         return lista;
     }
 
-    public Previsao getPrev(String code){
+    public Previsao getPrev(int code){
         String sql = "SELECT * FROM " + TABELA + " WHERE code = '" + code + "'";
         Previsao prev = new Previsao();;
         Cursor cursor = getReadableDatabase().rawQuery(sql, null);
@@ -125,13 +128,14 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
 
             while(cursor.moveToNext()){
                 CidadeBEAN cidadeBEAN = new CidadeBEAN();
-                prev.setCode(cursor.getString(0));
-                prev.setDate(cursor.getString(1));
-                prev.setDay(cursor.getString(2));
-                prev.setHigh(cursor.getString(3));
-                prev.setLow(cursor.getString(4));
-                prev.setCondicao(cursor.getString(5));
-                cidadeBEAN.setId(cursor.getLong(6));
+                prev.setCode(Integer.parseInt(cursor.getString(0)));
+                prev.setCodeTemp(cursor.getString(1));
+                prev.setDate(cursor.getString(2));
+                prev.setDay(cursor.getString(3));
+                prev.setHigh(cursor.getString(4));
+                prev.setLow(cursor.getString(5));
+                prev.setCondicao(cursor.getString(6));
+                cidadeBEAN.setId(cursor.getLong(7));
             }
         }
         catch (SQLException e ){
@@ -149,7 +153,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
     public void deletarPrevisao(Previsao previsao){
 
         //definicao do array de parametros
-        String[] args = {previsao.getCode().toString()};
+        String[] args = {String.valueOf(previsao.getCode())};
         //exclusao do aluno
         getWritableDatabase().delete(TABELA,"id=?", args);
         Log.i(TAG, "Previsao Deletada: " + previsao.getCondicao());
@@ -166,7 +170,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         values.put("condicao", previsao.getCondicao());
         values.put("cidade_id", cidadeBEAN.getId());
         //Colecao de Valores de parametro do sql
-        String[] args = {previsao.getCode().toString()};
+        String[] args = {String.valueOf(previsao.getCode())};
         //Altera dados da cidade no BD
         getWritableDatabase().update(TABELA, values,"id=?", args);
         Log.i(TAG, "CidadeBEAN Alterada: " + previsao.getCondicao() );
@@ -189,7 +193,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
 
 
     }
-    public CidadeBEAN getCidade(String codePrev){
+    public CidadeBEAN getCidade(int codePrev){
         String sql = "SELECT * FROM " + TABELA2 + " WHERE id IN (SELECT cidade_id FROM Previsoes WHERE code = '" + codePrev +"')";
         CidadeBEAN cid = new CidadeBEAN();
         Cursor cursor = getReadableDatabase().rawQuery(sql, null);
