@@ -17,6 +17,7 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
     //Constantes para auxilio no controle de versoes
     private static final int VERSAO = 1;
     private static final String TABELA = "Previsoes";
+    private static final String TABELA2 = "CidadeBEAN";
     private static final String DATABASE = "CidadeBEANs";
     //Constante para logcat
     private static final String TAG = "CADASTRO_PREVISAO";
@@ -39,6 +40,13 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
                 + "cidade_id INTEGER )";
                 //+ "FOREIGN KEY(cidade_id) REFERENCES CidadeBEAN(id))";
         //EXECUCAO
+        database.execSQL(ddl);
+         ddl = "CREATE TABLE " + TABELA2 + "( "
+                + "id INTEGER PRIMARY KEY, "
+                + "lastBuildDate TEXT, "
+                + "city TEXT, "
+                + "country TEXT, "
+                + "region TEXT)";
         database.execSQL(ddl);
     }
 
@@ -162,5 +170,71 @@ public class PrevisaoDAO extends SQLiteOpenHelper {
         //Altera dados da cidade no BD
         getWritableDatabase().update(TABELA, values,"id=?", args);
         Log.i(TAG, "CidadeBEAN Alterada: " + previsao.getCondicao() );
+    }
+
+    public void cadastrarCidadeBEAN(CidadeBEAN cidade){
+
+        //objeto para armazenar os valores dos campos
+        ContentValues values = new ContentValues();
+        //Definicao dos campos da tabela
+        values.put("lastBuildDate", cidade.getLastBuildDate());
+        values.put("city", cidade.getCity());
+        values.put("country", cidade.getCountry());
+        values.put("region", cidade.getRegion());
+        //inserir dados da cidade no BD
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABELA2, null, values);
+        Log.i(TAG, "CidadeBEAN cadastrada: " + cidade.getCity());
+
+
+
+    }
+    public CidadeBEAN getCidade(String codePrev){
+        String sql = "SELECT * FROM " + TABELA2 + " WHERE id IN (SELECT cidade_id FROM Previsoes WHERE code = '" + codePrev +"')";
+        CidadeBEAN cid = new CidadeBEAN();
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+
+        try{
+            while(cursor.moveToNext()){
+                cid.setId(Long.parseLong(cursor.getString(0)));
+                cid.setCity(cursor.getString(2));
+                cid.setCountry(cursor.getString(3));
+                cid.setRegion(cursor.getString(4));
+            }
+        }
+        catch (SQLException e ){
+
+            Log.e(TAG, e.getMessage());
+        }
+
+        finally {
+            cursor.close();
+        }
+
+        return cid;
+    }
+    public CidadeBEAN getCidade(CidadeBEAN city){
+        String sql = "SELECT * FROM " + TABELA2 + " WHERE city = '" + city.getCity() + "'";
+        CidadeBEAN cid = new CidadeBEAN();
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+
+        try{
+            while(cursor.moveToNext()){
+                cid.setId(Long.parseLong(cursor.getString(0)));
+                cid.setCity(cursor.getString(2));
+                cid.setCountry(cursor.getString(3));
+                cid.setRegion(cursor.getString(4));
+            }
+        }
+        catch (SQLException e ){
+
+            Log.e(TAG, e.getMessage());
+        }
+
+        finally {
+            cursor.close();
+        }
+
+        return cid;
     }
 }
